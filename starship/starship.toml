@@ -1,0 +1,22 @@
+[kubernetes]
+format = '[$context \($namespace\)](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\\w-]+)' = 'gke-$var_cluster'
+[kubernetes.user_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'root/.*' = 'root'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\\w-]+)' = 'gke-$var_cluster'
+'teleport.prod.truedigitalhealth.com-tdh-prod-octopus' = 'tdh-prod'
+'teleport.tdh.bluewhale.space-tdh-dev-octopus' = 'tdh-dev'
+'teleport.gov.bluewhale.space-tdh-dev-octopus' = 'tdh-gov'
+'teleport.gov.bluewhale.space-tdh-governance' = 'tdh-governance'
+[gcloud]
+format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+symbol = '️🇬️ '
+[pulumi]
+symbol = '🛥 '
+format = '[$symbol$stack]($style) '
