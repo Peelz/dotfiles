@@ -17,7 +17,7 @@ config.color_scheme = "Tokyo Night Storm"
 
 config.window_background_opacity = 0.85
 
-config.font = wezterm.font("MesloLGS NF", { weight = "Medium" })
+config.font = wezterm.font("JetbrainMono Nerd Font", { weight = "Medium" })
 config.font_size = 9
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
