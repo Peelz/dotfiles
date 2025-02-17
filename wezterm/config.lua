@@ -34,7 +34,7 @@ config.font = wezterm.font_with_fallback({
 	-- <built-in>, BuiltIn
 	"Symbols Nerd Font Mono",
 })
-config.font_size = 10
+config.font_size = 12
 
 -- wezterm.on("user-var-changed", function(window, pane, name, value)
 -- 	local overrides = window:get_config_overrides() or {}
