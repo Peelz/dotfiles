@@ -1,8 +1,8 @@
 set clipboard+=unnamed
 let mapleader=" "
-" set relativenumber
-" set number
-" set statuscolumn="%s %l %r"
+" set number relativenumber
+set nu
+set statuscolumn="%s %l %r"
 """ Plugins  --------------------------------
 set surround
 set which-key
@@ -82,6 +82,14 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 " Go to Right Window
 nmap <C-l> <C-w>l
+
+" Show error
+nmap <leader>cd <Action>(ShowErrorDescription)
+" Code Reformat
+nmap <leader>cf <Action>(ReformatCode)
+" Rename
+nmap <leader>cr <Action>(RenameElement)
+
 " ==========================================================================
 
 " Bufferline
@@ -94,6 +102,8 @@ nmap <leader>bp <Action>(PinActiveTabToggle)
 nmap <leader>bP <Action>(CloseAllUnpinnedEditors)
 " Delete buffers to the right
 nmap <leader>br <Action>(CloseAllToTheRight)
+" Delete buffers to the right
+nmap <leader>bd <Action>(CloseContent)
 "===========================================================================
 
 " Neo-tree Keymaps
@@ -101,9 +111,9 @@ nmap <leader>br <Action>(CloseAllToTheRight)
 " Buffer Explorer
 nmap <leader>be <Action>(ActivateProjectToolWindow)
 " Explorer NeoTree (Root Dir)
-nmap <leader>e <Action>(FileStructurePopup)
+" nmap <leader>e <Action>(FileStructurePopup)
 " Explorer NeoTree (cwd)
-nmap <leader>E <Action>(SelectInProjectView)
+nmap <leader>e <Action>(SelectInProjectView)
 " Explorer NeoTree (Root Dir) (alternative)
 nmap <leader>fe <Action>(ActivateProjectToolWindow)
 " Explorer NeoTree (cwd) (alternative)
