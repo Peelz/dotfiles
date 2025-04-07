@@ -150,8 +150,10 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # Monitor 
-    alt-up = 'focus-monitor prev'
-    alt-down = 'focus-monitor next'
+    alt-up = 'focus-monitor up'
+    alt-down = 'focus-monitor down'
+    alt-right = 'focus-monitor right'
+    alt-left = 'focus-monitor left'
     alt-shift-up = 'move-node-to-monitor prev'
     alt-shift-down = 'move-node-to-monitor next'
 
