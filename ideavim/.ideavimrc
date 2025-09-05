@@ -123,3 +123,7 @@ nmap <leader>ge <Action>(ActivateVersionControlToolWindow)
 
 " Util
 nnoremap <Leader>uw :set invwrap<CR>
+
+" Hack the broken undo shortcut
+unmap u
+nnoremap u :undo<CR>
