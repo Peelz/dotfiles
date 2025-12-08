@@ -62,14 +62,18 @@ config.font_size = 12
 -- and finally, return the configuration to wezterm
 --
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-config.keys = {
-	-- ...
+config.keys = { -- ...
 	{
 		key = "w",
 		mods = "ALT",
 		action = wezterm.action_callback(function(win, pane)
 			resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
 		end),
+	},
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wezterm.action({ SendString = "\x1b\r" }),
 	},
 	{
 		key = "W",
