@@ -1,17 +1,20 @@
 after-login-command = []
 
 after-startup-command = [
-  'exec-and-forget borders active_color=0xff1688f0 inactive_color=0xff494d64 width=6.0'
+  'exec-and-forget borders style=round active_color=0xff148dff width=10.0 inactive_color=0xff2b4761',
+]
+exec-on-workspace-change = [
+  '/bin/bash', 
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
 ]
 
 # Start AeroSpace at login
 start-at-login = true
-
-# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
-enable-normalization-flatten-containers = true
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 20
+accordion-padding = 30
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -27,12 +30,17 @@ automatically-unhide-macos-hidden-apps = true
     preset = 'qwerty'
 
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
-    outer.bottom =     5
-    outer.top =        5
-    outer.left =       5
-    outer.right =      5
+    inner.horizontal = 20
+    inner.vertical =   20
+    outer.bottom =     20
+    # outer.top =        5
+    outer.top = [
+      { monitor."built-in" = 5 },
+      { monitor."main" = 10 },
+      20
+    ]
+    outer.left =       20
+    outer.right =      20
 
 [mode.main.binding]
 
@@ -70,16 +78,15 @@ automatically-unhide-macos-hidden-apps = true
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     # alt-shift-0 = 'move-node-to-workspace 0'
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace Doc'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace Editor'
-
+    alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    alt-shift-4 = 'move-node-to-workspace Doc --focus-follows-window'
+    alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+    alt-shift-9 = 'move-node-to-workspace Editor --focus-follows-window'
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
 
@@ -96,6 +103,7 @@ automatically-unhide-macos-hidden-apps = true
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
+    alt-shift-t= 'mode layout'
     alt-shift-r = 'mode resize'
 
 # 'service' binding mode declaration.
@@ -108,7 +116,6 @@ automatically-unhide-macos-hidden-apps = true
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
-
     h = ['join-with left', 'mode main']
     j = ['join-with down', 'mode main']
     k = ['join-with up', 'mode main']
@@ -117,6 +124,12 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+[mode.layout.binding]
+    k = ['layout v_accordion', 'mode main']
+    t = ['layout tiles', 'mode main']
+    enter = 'mode main'
+    esc = 'mode main'
 
 [mode.resize.binding]
     h = 'resize width -50'
