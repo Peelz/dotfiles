@@ -12,12 +12,20 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Tokyo Night Storm"
+config.color_scheme = "Tokyo Night Strom"
+config.colors = {
+	tab_bar = {
+		active_tab = {
+			fg_color = "#1a1b26",
+			bg_color = "#7aa2f7",
+		},
+		inactive_tab = {
+			fg_color = "#414868",
+			bg_color = "#16161e",
+		},
+	},
+}
 
-config.window_background_opacity = 0.9
-
--- config.font = wezterm.font("Jetbrain Mono", { weight = "Medium" })
---
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMono Nerd Font",
 	-- <built-in>, BuiltIn
@@ -36,31 +44,82 @@ config.font = wezterm.font_with_fallback({
 })
 config.font_size = 12
 
--- wezterm.on("user-var-changed", function(window, pane, name, value)
--- 	local overrides = window:get_config_overrides() or {}
--- 	if name == "ZEN_MODE" then
--- 		local incremental = value:find("+")
--- 		local number_value = tonumber(value)
--- 		if incremental ~= nil then
--- 			while number_value > 0 do
--- 				window:perform_action(wezterm.action.IncreaseFontSize, pane)
--- 				number_value = number_value - 1
--- 			end
--- 			overrides.enable_tab_bar = false
--- 		elseif number_value < 0 then
--- 			window:perform_action(wezterm.action.ResetFontSize, pane)
--- 			overrides.font_size = nil
--- 			overrides.enable_tab_bar = true
--- 		else
--- 			overrides.font_size = number_value
--- 			overrides.enable_tab_bar = false
--- 		end
--- 	end
--- 	window:set_config_overrides(overrides)
--- end)
+config.native_macos_fullscreen_mode = true
+config.macos_window_background_blur = 20
 
--- and finally, return the configuration to wezterm
---
+-- config.window_background_opacity = 0.85
+
+config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
+-- window_decorations = "TITLE | RESIZE | INTEGRATED_BUTTONS"
+
+-- config.window_frame = {
+--   border_left_width = '0.5cell',
+--   border_right_width = '0.5cell',
+--   border_bottom_height = '0.25cell',
+--   border_top_height = '0.25cell',
+--   border_left_color = 'purple',
+--   border_right_color = 'purple',
+--   border_bottom_color = 'purple',
+--   border_top_color = 'purple',
+-- }
+
+config.window_padding = {
+	-- left = 2,
+	-- right = 2,
+	top = 8,
+	bottom = 4,
+}
+
+config.automatically_reload_config = true
+config.enable_tab_bar = true
+config.default_cursor_style = "BlinkingBar"
+config.use_fancy_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config)
+	local pane = tab.active_pane
+	local process_name = pane and pane.foreground_process_name or ""
+	if process_name:find("tmux") then
+		local success, stdout, stderr = wezterm.run_child_process({ "tmux", "display-message", "-p", "#S" })
+		if success and stdout and stdout ~= "" then
+			return stdout:gsub("\n", "")
+		end
+		return tab.active_pane.title
+	end
+	local cwd = pane and pane.current_working_dir and pane.current_working_dir.file_path or ""
+	local dir_name = cwd:match("([^/]+)$") or "Terminal"
+	return dir_name
+end)
+
+config.background = {
+	{
+		source = {
+			File = "/Users/peelz/Pictures/Background/cozy-cat.jpg",
+			-- File = "/Users/peelz/Library/Mobile Documents/com~apple~CloudDocs/Background/unix-terminal-keys-2560x1440.png",
+		},
+		horizontal_align = "Center",
+		vertical_align = "Middle",
+		hsb = {
+			saturation = 0.7,
+			brightness = 0.1,
+		},
+		-- width = "100%",
+		-- height = "100%",
+	},
+	{
+		source = {
+			Color = "#282c35",
+		},
+		hsb = {
+			-- saturation = 0.1,
+			brightness = 0.5,
+		},
+		width = "100%",
+		-- height = "100%",
+		opacity = 0.7,
+	},
+}
+
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 config.keys = { -- ...
 	{
