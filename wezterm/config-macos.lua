@@ -45,23 +45,12 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 12
 
 config.native_macos_fullscreen_mode = true
-config.macos_window_background_blur = 20
+config.macos_window_background_blur = 40
 
--- config.window_background_opacity = 0.85
+config.window_background_opacity = 0.5
 
 config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
 -- window_decorations = "TITLE | RESIZE | INTEGRATED_BUTTONS"
-
--- config.window_frame = {
---   border_left_width = '0.5cell',
---   border_right_width = '0.5cell',
---   border_bottom_height = '0.25cell',
---   border_top_height = '0.25cell',
---   border_left_color = 'purple',
---   border_right_color = 'purple',
---   border_bottom_color = 'purple',
---   border_top_color = 'purple',
--- }
 
 config.window_padding = {
 	-- left = 2,
@@ -91,33 +80,37 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config)
 	return dir_name
 end)
 
+config.enable_tab_bar = true
 config.background = {
-	{
-		source = {
-			File = "/Users/peelz/Pictures/Background/cozy-cat.jpg",
-			-- File = "/Users/peelz/Library/Mobile Documents/com~apple~CloudDocs/Background/unix-terminal-keys-2560x1440.png",
-		},
-		horizontal_align = "Center",
-		vertical_align = "Middle",
-		hsb = {
-			saturation = 0.7,
-			brightness = 0.1,
-		},
-		-- width = "100%",
-		-- height = "100%",
-	},
-	{
-		source = {
-			Color = "#282c35",
-		},
-		hsb = {
-			-- saturation = 0.1,
-			brightness = 0.5,
-		},
-		width = "100%",
-		-- height = "100%",
-		opacity = 0.7,
-	},
+	-- {
+	-- 	source = {
+	-- 		File = home_dir .. "/dotfiles/imgs/cozy-cat.jpg",
+	-- 	},
+	-- 	repeat_x = "Mirror",
+	-- 	horizontal_align = "Center",
+	-- 	-- vertical_align = "Middle",
+	-- 	-- hsb = {
+	-- 	-- 	saturation = 0.7,
+	-- 	-- 	brightness = 0.1,
+	-- 	-- },
+	-- 	hsb = dimmer,
+	-- 	attachment = { Parallax = 0.1 },
+	--
+	-- 	-- width = "100%",
+	-- 	-- height = "100%",
+	-- },
+	-- {
+	-- 	source = {
+	-- 		Color = "#282c35",
+	-- 	},
+	-- 	hsb = {
+	-- 		saturation = 0.1,
+	-- 		brightness = 0.5,
+	-- 	},
+	-- 	width = "100%",
+	-- 	-- height = "100%",
+	-- 	opacity = 0.4,
+	-- },
 }
 
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
