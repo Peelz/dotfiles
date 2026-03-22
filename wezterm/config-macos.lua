@@ -107,14 +107,26 @@ config.background = {
 	-- 		saturation = 0.1,
 	-- 		brightness = 0.5,
 	-- 	},
+  -- 	height = "100%",
 	-- 	width = "100%",
-	-- 	-- height = "100%",
 	-- 	opacity = 0.4,
 	-- },
 }
 
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 config.keys = { -- ...
+  -- Previous tab: Meta + Shift + H
+	 -- {
+	 --   key = 'H',
+	 --   mods = 'META|SHIFT',
+	 --   action = wezterm.action.ActivateTabRelative(-1),
+	 -- },
+	 -- -- Next tab: Meta + Shift + L
+	 -- {
+	 --   key = 'L',
+	 --   mods = 'META|SHIFT',
+	 --   action = wezterm.action.ActivateTabRelative(-1),
+	 -- },
 	{
 		key = "w",
 		mods = "ALT",

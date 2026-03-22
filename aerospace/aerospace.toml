@@ -138,9 +138,9 @@ enter = 'mode main'
 esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-4 = 'BenQ RD280UG' # Monitor sequence number from left to right. 1-based indexing
-# 2 = 'main'                       # Main monitor
-# 3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+4 = 'BenQ RD280UG'                 # Monitor sequence number from left to right. 1-based indexing 
+1 = 'Buit-in Retina Display'       # Main monitor
+3 = 'LG ULTRAGEAR'                 # Non-main monitor in case when there are only two monitors
 # 4 = 'built-in'                   # Case insensitive regex substring
 # 5 = '^built-in retina display$'  # Case insensitive regex match
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns.
