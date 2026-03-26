@@ -116,17 +116,17 @@ config.background = {
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 config.keys = { -- ...
   -- Previous tab: Meta + Shift + H
-	 -- {
-	 --   key = 'H',
-	 --   mods = 'META|SHIFT',
-	 --   action = wezterm.action.ActivateTabRelative(-1),
-	 -- },
-	 -- -- Next tab: Meta + Shift + L
-	 -- {
-	 --   key = 'L',
-	 --   mods = 'META|SHIFT',
-	 --   action = wezterm.action.ActivateTabRelative(-1),
-	 -- },
+	 {
+	   key = "n",
+	   mods = "META|SHIFT",
+	   action = wezterm.action.ActivateTabRelative(-1),
+	 },
+	 -- Next tab: Meta + Shift + L
+	 {
+	   key = "m",
+	   mods = 'META|SHIFT',
+	   action = wezterm.action.ActivateTabRelative(1),
+	 },
 	{
 		key = "w",
 		mods = "ALT",
