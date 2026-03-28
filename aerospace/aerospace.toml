@@ -122,6 +122,20 @@ shift-down = ['volume set 0', 'mode main']
 4 = ['workspace 4', 'mode main']
 5 = ['workspace 5', 'mode main']
 6 = ['workspace 6', 'mode main']
+7 = ['workspace 7', 'mode main']
+8 = ['workspace 8', 'mode main']
+9 = ['workspace 9', 'mode main']
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+ctrl-1 = ['move-node-to-workspace 1', 'mode main']
+ctrl-2 = ['move-node-to-workspace 2', 'mode main']
+ctrl-3 = ['move-node-to-workspace 3', 'mode main']
+ctrl-4 = ['move-node-to-workspace 4', 'mode main']
+ctrl-5 = ['move-node-to-workspace 5', 'mode main']
+ctrl-6 = ['move-node-to-workspace 6', 'mode main']
+ctrl-7 = ['move-node-to-workspace 7', 'mode main']
+ctrl-8 = ['move-node-to-workspace 8', 'mode main']
+ctrl-9 = ['move-node-to-workspace 9', 'mode main']
 
 [mode.layout.binding]
 k = ['layout v_accordion', 'mode main']
@@ -138,8 +152,8 @@ enter = 'mode main'
 esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-4 = 'BenQ RD280UG'                 # Monitor sequence number from left to right. 1-based indexing 
-1 = 'Buit-in Retina Display'       # Main monitor
+1 = 'BenQ RD280UG'                 # Monitor sequence number from left to right. 1-based indexing 
+2 = 'Buit-in Retina Display'       # Main monitor
 3 = 'LG ULTRAGEAR'                 # Non-main monitor in case when there are only two monitors
 # 4 = 'built-in'                   # Case insensitive regex substring
 # 5 = '^built-in retina display$'  # Case insensitive regex match
