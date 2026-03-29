@@ -68,13 +68,12 @@ config.hide_tab_bar_if_only_one_tab = false
 wezterm.on("format-tab-title", function(tab, tabs, panes, config)
 	local pane = tab.active_pane
 	local process_name = pane and pane.foreground_process_name or ""
+
 	if process_name:find("tmux") then
-		local success, stdout, stderr = wezterm.run_child_process({ "tmux", "display-message", "-p", "#S" })
-		if success and stdout and stdout ~= "" then
-			return stdout:gsub("\n", "")
-		end
-		return tab.active_pane.title
+		local session_nmae = tab.active_pane.title
+    return string.format("[ %s ]", session_nmae)
 	end
+
 	local cwd = pane and pane.current_working_dir and pane.current_working_dir.file_path or ""
 	local dir_name = cwd:match("([^/]+)$") or "Terminal"
 	return dir_name
@@ -107,7 +106,7 @@ config.background = {
 	-- 		saturation = 0.1,
 	-- 		brightness = 0.5,
 	-- 	},
-  -- 	height = "100%",
+	-- 	height = "100%",
 	-- 	width = "100%",
 	-- 	opacity = 0.4,
 	-- },
@@ -115,18 +114,18 @@ config.background = {
 
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 config.keys = { -- ...
-  -- Previous tab: Meta + Shift + H
-	 {
-	   key = "n",
-	   mods = "META|SHIFT",
-	   action = wezterm.action.ActivateTabRelative(-1),
-	 },
-	 -- Next tab: Meta + Shift + L
-	 {
-	   key = "m",
-	   mods = 'META|SHIFT',
-	   action = wezterm.action.ActivateTabRelative(1),
-	 },
+	-- Previous tab: Meta + Shift + H
+	{
+		key = "n",
+		mods = "META|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	-- Next tab: Meta + Shift + L
+	{
+		key = "m",
+		mods = "META|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
 	{
 		key = "w",
 		mods = "ALT",
