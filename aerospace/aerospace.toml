@@ -1,7 +1,7 @@
 after-login-command = []
 
 after-startup-command = [
-  'exec-and-forget borders style=round active_color=0xff148dff width=10.0 inactive_color=0xff2b4761',
+  'exec-and-forget borders style=round active_color=0xff148dfc width=10.0 inactive_color=0xff2b4761',
 ]
 exec-on-workspace-change = [
   '/bin/bash',
@@ -40,7 +40,7 @@ outer.top = [
   10,
 ]
 outer.left = 20
-outer.right = 20
+outer.right = 24
 
 [mode.main.binding]
 
