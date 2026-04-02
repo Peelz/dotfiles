@@ -95,6 +95,12 @@ alt-shift-r = 'mode resize'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+tab = 'workspace-back-and-forth'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = [
@@ -152,9 +158,9 @@ enter = 'mode main'
 esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-1 = 'BenQ RD280UG'                 # Monitor sequence number from left to right. 1-based indexing 
-2 = 'Built-in Retina Display'       # Main monitor
-3 = 'LG ULTRAGEAR'                 # Non-main monitor in case when there are only two monitors
+1 = 'BenQ RD280UG'            # Monitor sequence number from left to right. 1-based indexing 
+2 = 'Built-in Retina Display' # Main monitor
+3 = 'LG ULTRAGEAR'            # Non-main monitor in case when there are only two monitors
 # 4 = 'built-in'                   # Case insensitive regex substring
 # 5 = '^built-in retina display$'  # Case insensitive regex match
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns.
